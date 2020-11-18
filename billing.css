@@ -1,0 +1,8 @@
+#checkoutsteps {list-style: none; margin: 0; padding: 0;}
+#checkoutsteps li {font-size: small; display: inline; color: #aaa; padding: 0 10px; border-right: 1px solid #999;}
+#checkoutsteps li.currentstep {color: #000;}
+#checkoutsteps li.last {border-right: none;}
+table.form-tbl {width: 100%;}
+table.form-tbl td, table.form-tbl th {padding: 4px 2px;}
+table.form-tbl th {width: 160px;}
+table.form-tbl input[type="text"], table.form-tbl textarea {width: 75%;}

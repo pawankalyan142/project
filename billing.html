@@ -1,0 +1,100 @@
+<h1>Checkout</h1> 
+<p><em>*</em> = required field </p>
+{if #billing.form.errors}
+  <ul class="errors">
+    {loop items="#billing.form.errors" value="error"}
+      <li>{#error.message}</li>
+    {/loop}
+  </ul>
+{/if}
+<ul id="checkoutsteps">
+  <link rel="stylesheet" href="billing.css">
+  <li><a href="{#billing.urls.cart}">Shopping Cart</a></li>
+  <li><a href="{#billing.urls.checkoutShipping}">Shipping Address</a></li>
+  <li class="currentstep">Billing &amp; Payment</li>
+  <li>Confirmation</li>
+  <li class="last">Receipt</li>
+</ul>
+{#billing.form.tag.open}
+  {if #billing.form.fields.shippingOptions.options}
+    <h2>Shipping</h2>
+    {#billing.form.fields.shippingOptions.tag}
+  {/if}
+  <h2>Billing Information</h2>
+  <table class="form-tbl" cellspacing="0">
+    <tbody>
+      <tr>
+        <th>&nbsp;</th>
+        <td>
+          <input type="checkbox" name="populateinfo" value="1" id="populateinfo" />
+          <label for="populateinfo">My billing information is the same as my shipping information</label>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billFirstName.id}">First Name <em>*</em></label></th>
+        <td>{#billing.form.fields.billFirstName.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billLastName.id}">Last Name <em>*</em></label></th>
+        <td>{#billing.form.fields.billLastName.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billAddress.id}">Address <em>*</em></label></th>
+        <td>{#billing.form.fields.billAddress.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billCity.id}">City <em>*</em></label></th>
+        <td>{#billing.form.fields.billCity.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billStateText.id}">State/Region/Province<em>*</em></label></th>
+        <td>{#billing.form.fields.billStateText.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billZipCode.id}">Zip/Postal Code<em>*</em></label></th>
+        <td>{#billing.form.fields.billZipCode.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billCountry.id}">Country <em>*</em></label></th>
+        <td>{#billing.form.fields.billCountry.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billPhone.id}">Phone <em>*</em></label></th>
+        <td>{#billing.form.fields.billPhone.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billEmail.id}">Email <em>*</em></label></th>
+        <td>{#billing.form.fields.billEmail.tag}</td>
+      </tr>
+      <tr>
+        <th><label>Confirm Email <em>*</em></th>
+        <td><input id="email2" type="text" name="email2" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Payment Information</h2>
+  <table class="form-tbl" cellspacing="0">
+    <tbody>
+      <tr>
+        <th><label for="{#billing.form.fields.billCreditCardType.id}">Credit Card Type <em>*</em></label></th>
+        <td>{#billing.form.fields.billCreditCardType.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billCreditCardNumber.id}">Card Number <em>*</em></label></th>
+         <td>{#billing.form.fields.billCreditCardNumber.tag}</td>
+      </tr>
+       <tr>
+         <th><label for="{#billing.form.fields.billCreditCardExpirationMonth.id}">Expiration <em>*</em></label></th>
+         <td>{#billing.form.fields.billCreditCardExpirationMonth.tag} {#billing.form.fields.billCreditCardExpirationYear.tag}</td>
+      </tr>
+      <tr>
+        <th><label for="{#billing.form.fields.billCreditCardCode.id}">Security Code <em>*</em></label></th>
+        <td>{#billing.form.fields.billCreditCardCode.tag}<div class="smallText">3 or 4 digit code from the back of your credit card</div></td>
+      </tr>
+       <tr>
+         <th>&nbsp;</th>
+        <td><input type="submit" name="submit" value="Continue &raquo" /></td>
+      </tr>
+    </tbody>
+  </table>
+
